@@ -1,0 +1,128 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Valentine 💕</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff4d6d, #ffb3c6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            color: white;
+            text-align: center;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            max-width: 400px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 25px;
+        }
+
+        .options {
+            font-size: 1.3em;
+        }
+
+        label {
+            margin: 0 15px;
+            cursor: pointer;
+        }
+
+        input[type="checkbox"] {
+            transform: scale(1.5);
+            margin-right: 8px;
+        }
+
+        .message {
+            margin-top: 25px;
+            font-size: 1.4em;
+            display: none;
+        }
+
+        .link-btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 25px;
+            background: #ff999a;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.2em;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            transition: transform 0.2s, background 0.2s;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .link-btn.enabled {
+            background: #ff4d6d;
+            pointer-events: auto;
+            opacity: 1;
+        }
+
+        .link-btn:hover.enabled {
+            background: #ff1e56;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>Hey My Love 💖</h1>
+    <p>Will you be my Valentine? 💌</p>
+
+    <div class="options">
+        <label>
+            <input type="checkbox" id="yes" onclick="selectYes()"> Yes 💕
+        </label>
+        <label>
+            <input type="checkbox" id="no" onclick="selectNo()"> No 💔
+        </label>
+    </div>
+
+    <div class="message" id="message"></div>
+
+    <!-- disabled link -->
+    <a href="new 2.html" id="memoriesLink" class="link-btn">See Our Memories 💕</a>
+
+</div>
+
+<script>
+    function selectYes() {
+        document.getElementById("no").checked = false;
+        const msg = document.getElementById("message");
+        msg.style.display = "block";
+        msg.innerHTML = "YAY!!! 😍💖 You just made me the happiest person ever!<br>Scroll down for something special 💕";
+
+        // unlock the memories link
+        const link = document.getElementById("memoriesLink");
+        link.classList.add("enabled");
+    }
+
+    function selectNo() {
+        document.getElementById("yes").checked = false;
+        const msg = document.getElementById("message");
+        msg.style.display = "block";
+        msg.innerHTML = "Oh no 😢💔 … are you sure? 🥺";
+    }
+</script>
+
+</body>
+</html>
